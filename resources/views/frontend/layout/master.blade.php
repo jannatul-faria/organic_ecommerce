@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en" data-bs-theme="light">
 
 @include('frontend.includes.header')
 
