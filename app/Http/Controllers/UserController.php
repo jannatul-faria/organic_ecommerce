@@ -39,6 +39,8 @@ class UserController extends Controller
 
             if ($user !== null) {
                 $token = JWTToken::createToken($request->email,$request->id);
+                
+                session(['authenticatedUser' => $user]);
                 return response()->json([
                     'status' => 'success',
                     'message' => 'User Login Succesfull!',

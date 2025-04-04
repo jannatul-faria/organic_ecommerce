@@ -15,17 +15,32 @@ class TokenVerifyMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
-    {
-        $token = $request->cookie('token');
-        $result = JWTToken::decodeToken($token);
-        if ($result == 'Unauthorized') {
-            return redirect('/login');
-        }else{
-            $request->headers->set('email', $result->email);
-            $request->headers->set('id', $result->id);
-            return $next($request);
-        }
+    // public function handle(Request $request, Closure $next): Response
+    // {
+    //     $token = $request->cookie('token');
+    //     $result = JWTToken::decodeToken($token);
+    //     if ($result == 'Unauthorized') {
+    //         return redirect('/login');
+    //     }else{
+    //         $request->headers->set('email', $result->email);
+    //         $request->headers->set('id', $result->id);
+    //         view()->share('authenticateUser', $result);
+    //         return $next($request);
+    //     }
         
+    // }
+    public function handle(Request $request, Closure $next): Response
+{
+    $token = $request->cookie('token');
+    $result = JWTToken::decodeToken($token);
+
+    if ($result == 'Unauthorized') {
+        return redirect('/login');
+    } else {
+        // Share authenticated user globally with all views
+        view()->share('authenticatedUser', $result);
+        return $next($request);
     }
+}
+
 }

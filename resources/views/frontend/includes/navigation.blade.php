@@ -30,20 +30,31 @@
                           </div>
                           <div class="header__top__right__auth">
                               <div class="d-flex">
-                                <a class="text-center" href="{{ url('/login') }}"><i
-                                          class="fa fa-user"></i>Login | 
+                               
+                                @php
+                                    $token = request()->cookie('token'); 
+                                @endphp
+                            
+                            @if(isset($token) && $token != 'Unauthorized')
+                            
+                                <a class="text-center" href="{{ route('admin.dashboard') }}">
+                                    <i class="fa fa-dashboard pl-1"></i> Dashboard |
                                 </a>
-                               @if(Auth::guard('web'))
-                                    <a class="text-center" href="{{ route('admin.dashboard') }}">
-                                        <i class="fa fa-dashboard pl-1"></i>
-                                        Dashboard</a>
-                               @else
-                                <form action="{{ route('logout') }}" method="post">
+                           
+                               
+                                <form action="{{ route('logout') }}" method="post" style="font-size: 14px;" >
                                     @csrf
-                                        <a class="text-center" href="javascript:void(0)">
-                                        <i class="fa fa-sign-out pl-1" aria-hidden="true"></i>Logout</a>
-                                    </form>
-                                @endif
+                                    <button type="submit" style="border: none; background: none; cursor: pointer;">
+                                        <i class="fa fa-sign-out pl-1" aria-hidden="true"></i> Logout
+                                    </button>
+                                </form>
+                            @else
+                                <a class="text-center" href="{{ url('/login') }}">
+                                    <i class="fa fa-user"></i> Login
+                                </a>
+                            @endif
+                            
+                            
                             </div>
                           </div>
                       </div>
