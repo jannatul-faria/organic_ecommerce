@@ -29,11 +29,22 @@
                               </ul>
                           </div>
                           <div class="header__top__right__auth">
-                              <div class="d-flex"><a class="text-center" href="{{ url('/login') }}"><i
-                                          class="fa fa-user"></i>Login
-                                  </a>
-                              </div>
-
+                              <div class="d-flex">
+                                <a class="text-center" href="{{ url('/login') }}"><i
+                                          class="fa fa-user"></i>Login | 
+                                </a>
+                               @if(Auth::guard('web'))
+                                    <a class="text-center" href="{{ route('admin.dashboard') }}">
+                                        <i class="fa fa-dashboard pl-1"></i>
+                                        Dashboard</a>
+                               @else
+                                <form action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                        <a class="text-center" href="javascript:void(0)">
+                                        <i class="fa fa-sign-out pl-1" aria-hidden="true"></i>Logout</a>
+                                    </form>
+                                @endif
+                            </div>
                           </div>
                       </div>
                   </div>

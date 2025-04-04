@@ -54,14 +54,14 @@
                                                              <span data-key="t-menu">Menu</span>
                                                          </li>
                                                          <li class="nav-item">
-                                                             <a class="nav-link menu-link active"
+                                                             <a class="nav-link menu-link "
                                                                  href="#sidebarDashboards" data-bs-toggle="collapse"
-                                                                 role="button" aria-expanded="true"
+                                                                 role="button" aria-expanded=""
                                                                  aria-controls="sidebarDashboards">
                                                                  <i class="ri-dashboard-2-line"></i>
                                                                  <span data-key="t-dashboards">Dashboards</span>
                                                              </a>
-                                                             <div class="collapse menu-dropdown show"
+                                                             <div class="collapse menu-dropdown"
                                                                  id="sidebarDashboards">
                                                                  <ul class="nav nav-sm flex-column">
                                                                      <li class="nav-item">
@@ -104,6 +104,17 @@
                                                                  </ul>
                                                              </div>
                                                          </li>
+                                                         <li class="nav-item">
+                                                            <a class="nav-link menu-link"
+                                                             style="color: #ea2b2b"
+                                                             href="{{ route('web.home') }}"
+                                                                role="button"
+                                                                aria-controls="sidebarWebsites">
+                                                                <i class="ri-global-line"></i>
+                                                                <span data-key="t-website">Website</span>
+                                                            </a>
+                                                            
+                                                        </li>
                                                          <!-- end Dashboard Menu -->
                                                          {{-- <li class="nav-item">
                                                              <a class="nav-link menu-link collapsed"
