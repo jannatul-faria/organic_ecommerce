@@ -22,14 +22,6 @@ Route::get('/check-out', [WebsiteController::class, 'checkOut'])->name('web.chec
 Route::get('/pages/{slug}', [WebsiteController::class, 'singlePage'])->name('web.singlePage');
 
 
-// <=======================Backend Routes ==============================>
-Route::name('admin.')->prefix('admin')->group(function () {
-    Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-
-    
-});
-
-
 
 
 
@@ -37,3 +29,4 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
 
 require __DIR__ .'/auth.php';
+require __DIR__ .'/admin.php';

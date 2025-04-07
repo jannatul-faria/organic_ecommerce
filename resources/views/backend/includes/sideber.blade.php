@@ -54,14 +54,21 @@
                                                              <span data-key="t-menu">Menu</span>
                                                          </li>
                                                          <li class="nav-item">
-                                                             <a class="nav-link menu-link "
+                                                            <a class="nav-link menu-link "
+                                                            href="{{ route('admin.dashboard') }}" 
+                                                            role="button" aria-expanded=""
+                                                            aria-controls="sidebarDashboards">
+                                                            <i class="ri-dashboard-2-line"></i>
+                                                            <span data-key="t-dashboards">Dashboards</span>
+                                                        </a>
+                                                             {{-- <a class="nav-link menu-link "
                                                                  href="#sidebarDashboards" data-bs-toggle="collapse"
                                                                  role="button" aria-expanded=""
                                                                  aria-controls="sidebarDashboards">
                                                                  <i class="ri-dashboard-2-line"></i>
                                                                  <span data-key="t-dashboards">Dashboards</span>
-                                                             </a>
-                                                             <div class="collapse menu-dropdown"
+                                                             </a> --}}
+                                                             {{-- <div class="collapse menu-dropdown"
                                                                  id="sidebarDashboards">
                                                                  <ul class="nav nav-sm flex-column">
                                                                      <li class="nav-item">
@@ -102,43 +109,34 @@
                                                                                  data-key="t-new">New</span></a>
                                                                      </li>
                                                                  </ul>
-                                                             </div>
+                                                             </div> --}}
                                                          </li>
-                                                         <li class="nav-item">
-                                                            <a class="nav-link menu-link"
-                                                             style="color: #ea2b2b"
-                                                             href="{{ route('web.home') }}"
-                                                                role="button"
-                                                                aria-controls="sidebarWebsites">
-                                                                <i class="ri-global-line"></i>
-                                                                <span data-key="t-website">Website</span>
-                                                            </a>
-                                                            
-                                                        </li>
+                                                        
                                                          <!-- end Dashboard Menu -->
-                                                         {{-- <li class="nav-item">
+                                                         {{-- admin manage --}}
+                                                         <li class="nav-item">
                                                              <a class="nav-link menu-link collapsed"
-                                                                 href="#sidebarApps" data-bs-toggle="collapse"
+                                                                 href="#sidebarAdmin" data-bs-toggle="collapse"
                                                                  role="button" aria-expanded="false"
-                                                                 aria-controls="sidebarApps">
-                                                                 <i class="ri-apps-2-line"></i>
-                                                                 <span data-key="t-apps">Apps</span>
+                                                                 aria-controls="sidebarAdmin">
+                                                                 <i class="ri-user-settings-fill"></i>
+                                                                 <span data-key="t-apps">Admin Manage</span>
                                                              </a>
-                                                             <div class="collapse menu-dropdown" id="sidebarApps">
+                                                             <div class="collapse menu-dropdown" id="sidebarAdmin">
                                                                  <ul class="nav nav-sm flex-column">
                                                                      <li class="nav-item">
                                                                          <a href="apps-calendar.html" class="nav-link"
                                                                              data-key="t-calendar">
-                                                                             Calendar
+                                                                             All Admin
                                                                          </a>
                                                                      </li>
                                                                      <li class="nav-item">
                                                                          <a href="apps-chat.html" class="nav-link"
                                                                              data-key="t-chat">
-                                                                             Chat
+                                                                             Add New Admin
                                                                          </a>
                                                                      </li>
-                                                                     <li class="nav-item">
+                                                                     {{-- <li class="nav-item">
                                                                          <a href="#sidebarEmail"
                                                                              class="nav-link collapsed"
                                                                              data-bs-toggle="collapse" role="button"
@@ -595,92 +593,650 @@
                                                                                  </li>
                                                                              </ul>
                                                                          </div>
-                                                                     </li>
+                                                                     </li> --}}
                                                                  </ul>
                                                              </div>
                                                          </li>
-
+                                                        {{-- Newslatter manage --}}
+                                                        <li class="nav-item">
+                                                            <a class="nav-link menu-link collapsed"
+                                                                href="#sidebarNewsletter" data-bs-toggle="collapse"
+                                                                role="button" aria-expanded="false"
+                                                                aria-controls="sidebarNewsletter">
+                                                                <i class="ri-mail-unread-fill"></i>
+                                                                <span data-key="t-newsletter">Newsletter Manage</span>
+                                                            </a>
+                                                            <div class="collapse menu-dropdown" id="sidebarNewsletter">
+                                                                <ul class="nav nav-sm flex-column">
+                                                                    <li class="nav-item">
+                                                                        <a href="apps-calendar.html" class="nav-link"
+                                                                            data-key="t-calendar">
+                                                                            All Subscribers
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="apps-chat.html" class="nav-link"
+                                                                            data-key="t-chat">
+                                                                            Send Mail All
+                                                                        </a>
+                                                                    </li>
+                                                                    {{-- <li class="nav-item">
+                                                                        <a href="#sidebarEmail"
+                                                                            class="nav-link collapsed"
+                                                                            data-bs-toggle="collapse" role="button"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="sidebarEmail"
+                                                                            data-key="t-email">
+                                                                            Email
+                                                                        </a>
+                                                                        <div class="collapse menu-dropdown"
+                                                                            id="sidebarEmail">
+                                                                            <ul class="nav nav-sm flex-column">
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-mailbox.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-mailbox">
+                                                                                        Mailbox
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="#sidebaremailTemplates"
+                                                                                        class="nav-link collapsed"
+                                                                                        data-bs-toggle="collapse"
+                                                                                        role="button"
+                                                                                        aria-expanded="false"
+                                                                                        aria-controls="sidebaremailTemplates"
+                                                                                        data-key="t-email-templates">
+                                                                                        Email Templates
+                                                                                        <span
+                                                                                            class="badge badge-pill bg-danger"
+                                                                                            data-key="t-new">New</span>
+                                                                                    </a>
+                                                                                    <div class="collapse menu-dropdown"
+                                                                                        id="sidebaremailTemplates">
+                                                                                        <ul
+                                                                                            class="nav nav-sm flex-column">
+                                                                                            <li class="nav-item">
+                                                                                                <a href="apps-email-basic.html"
+                                                                                                    class="nav-link"
+                                                                                                    data-key="t-basic-action">
+                                                                                                    Basic Action
+                                                                                                </a>
+                                                                                            </li>
+                                                                                            <li class="nav-item">
+                                                                                                <a href="apps-email-ecommerce.html"
+                                                                                                    class="nav-link"
+                                                                                                    data-key="t-ecommerce-action">
+                                                                                                    Ecommerce Action
+                                                                                                </a>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="#sidebarEcommerce"
+                                                                            class="nav-link collapsed"
+                                                                            data-bs-toggle="collapse" role="button"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="sidebarEcommerce"
+                                                                            data-key="t-ecommerce">
+                                                                            Ecommerce
+                                                                        </a>
+                                                                        <div class="collapse menu-dropdown"
+                                                                            id="sidebarEcommerce">
+                                                                            <ul class="nav nav-sm flex-column">
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-ecommerce-products.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-products">
+                                                                                        Products
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-ecommerce-product-details.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-product-Details">
+                                                                                        Product Details
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-ecommerce-add-product.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-create-product">
+                                                                                        Create Product
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-ecommerce-orders.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-orders">
+                                                                                        Orders
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-ecommerce-order-details.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-order-details">
+                                                                                        Order Details
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-ecommerce-customers.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-customers">
+                                                                                        Customers
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-ecommerce-cart.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-shopping-cart">
+                                                                                        Shopping Cart
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-ecommerce-checkout.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-checkout">
+                                                                                        Checkout
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-ecommerce-sellers.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-sellers">
+                                                                                        Sellers
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-ecommerce-seller-details.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-sellers-details">
+                                                                                        Seller Details
+                                                                                    </a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="#sidebarProjects"
+                                                                            class="nav-link collapsed"
+                                                                            data-bs-toggle="collapse" role="button"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="sidebarProjects"
+                                                                            data-key="t-projects">
+                                                                            Projects
+                                                                        </a>
+                                                                        <div class="collapse menu-dropdown"
+                                                                            id="sidebarProjects">
+                                                                            <ul class="nav nav-sm flex-column">
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-projects-list.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-list">
+                                                                                        List
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-projects-overview.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-overview">
+                                                                                        Overview
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-projects-create.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-create-project">
+                                                                                        Create Project
+                                                                                    </a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="#sidebarTasks"
+                                                                            class="nav-link collapsed"
+                                                                            data-bs-toggle="collapse" role="button"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="sidebarTasks"
+                                                                            data-key="t-tasks">
+                                                                            Tasks
+                                                                        </a>
+                                                                        <div class="collapse menu-dropdown"
+                                                                            id="sidebarTasks">
+                                                                            <ul class="nav nav-sm flex-column">
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-tasks-kanban.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-kanbanboard">
+                                                                                        Kanban Board
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-tasks-list-view.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-list-view">
+                                                                                        List View
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-tasks-details.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-task-details">
+                                                                                        Task Details
+                                                                                    </a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="#sidebarCRM"
+                                                                            class="nav-link collapsed"
+                                                                            data-bs-toggle="collapse" role="button"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="sidebarCRM"
+                                                                            data-key="t-crm">
+                                                                            CRM
+                                                                        </a>
+                                                                        <div class="collapse menu-dropdown"
+                                                                            id="sidebarCRM">
+                                                                            <ul class="nav nav-sm flex-column">
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-crm-contacts.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-contacts">
+                                                                                        Contacts
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-crm-companies.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-companies">
+                                                                                        Companies
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-crm-deals.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-deals">
+                                                                                        Deals
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-crm-leads.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-leads">
+                                                                                        Leads
+                                                                                    </a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="#sidebarCrypto"
+                                                                            class="nav-link collapsed"
+                                                                            data-bs-toggle="collapse" role="button"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="sidebarCrypto"
+                                                                            data-key="t-crypto">
+                                                                            Crypto
+                                                                        </a>
+                                                                        <div class="collapse menu-dropdown"
+                                                                            id="sidebarCrypto">
+                                                                            <ul class="nav nav-sm flex-column">
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-crypto-transactions.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-transactions">
+                                                                                        Transactions
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-crypto-buy-sell.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-buy-sell">
+                                                                                        Buy &amp; Sell
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-crypto-orders.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-orders">
+                                                                                        Orders
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-crypto-wallet.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-my-wallet">
+                                                                                        My Wallet
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-crypto-ico.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-ico-list">
+                                                                                        ICO List
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-crypto-kyc.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-kyc-application">
+                                                                                        KYC Application
+                                                                                    </a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="#sidebarInvoices"
+                                                                            class="nav-link collapsed"
+                                                                            data-bs-toggle="collapse" role="button"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="sidebarInvoices"
+                                                                            data-key="t-invoices">
+                                                                            Invoices
+                                                                        </a>
+                                                                        <div class="collapse menu-dropdown"
+                                                                            id="sidebarInvoices">
+                                                                            <ul class="nav nav-sm flex-column">
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-invoices-list.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-list-view">
+                                                                                        List View
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-invoices-details.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-details">
+                                                                                        Details
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-invoices-create.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-create-invoice">
+                                                                                        Create Invoice
+                                                                                    </a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="#sidebarTickets"
+                                                                            class="nav-link collapsed"
+                                                                            data-bs-toggle="collapse" role="button"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="sidebarTickets"
+                                                                            data-key="t-supprt-tickets">
+                                                                            Support Tickets
+                                                                        </a>
+                                                                        <div class="collapse menu-dropdown"
+                                                                            id="sidebarTickets">
+                                                                            <ul class="nav nav-sm flex-column">
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-tickets-list.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-list-view">
+                                                                                        List View
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-tickets-details.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-ticket-details">
+                                                                                        Ticket Details
+                                                                                    </a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="#sidebarnft"
+                                                                            class="nav-link collapsed"
+                                                                            data-bs-toggle="collapse" role="button"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="sidebarnft"
+                                                                            data-key="t-nft-marketplace">
+                                                                            NFT Marketplace
+                                                                            <span class="badge badge-pill bg-danger"
+                                                                                data-key="t-new">New</span>
+                                                                        </a>
+                                                                        <div class="collapse menu-dropdown"
+                                                                            id="sidebarnft">
+                                                                            <ul class="nav nav-sm flex-column">
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-nft-marketplace.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-marketplace">
+                                                                                        Marketplace
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-nft-explore.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-explore-now">
+                                                                                        Explore Now
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-nft-auction.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-live-auction">
+                                                                                        Live Auction
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-nft-item-details.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-item-details">
+                                                                                        Item Details
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-nft-collections.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-collections">
+                                                                                        Collections
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-nft-creators.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-creators">
+                                                                                        Creators
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-nft-ranking.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-ranking">
+                                                                                        Ranking
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-nft-wallet.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-wallet-connect">
+                                                                                        Wallet Connect
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="apps-nft-create.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-create-nft">
+                                                                                        Create NFT
+                                                                                    </a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li> --}}
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                        {{-- order manage --}}
                                                          <li class="nav-item">
                                                              <a class="nav-link menu-link collapsed"
-                                                                 href="#sidebarLayouts" data-bs-toggle="collapse"
+                                                                 href="#sidebarOrders" data-bs-toggle="collapse"
                                                                  role="button" aria-expanded="false"
-                                                                 aria-controls="sidebarLayouts">
-                                                                 <i class="ri-layout-3-line"></i>
-                                                                 <span data-key="t-layouts">Layouts</span>
+                                                                 aria-controls="sidebarOrders">
+                                                                 <i class="ri-list-unordered"></i>
+                                                                 <span data-key="t-layouts">Orders</span>
                                                              </a>
-                                                             <div class="collapse menu-dropdown" id="sidebarLayouts">
+                                                             <div class="collapse menu-dropdown" id="sidebarOrders">
                                                                  <ul class="nav nav-sm flex-column">
                                                                      <li class="nav-item">
                                                                          <a href="layouts-horizontal.html"
                                                                              target="_blank" class="nav-link"
-                                                                             data-key="t-horizontal">Horizontal</a>
+                                                                             data-key="t-vendor">All Vendors</a>
                                                                      </li>
                                                                      <li class="nav-item">
                                                                          <a href="layouts-detached.html"
                                                                              target="_blank" class="nav-link"
-                                                                             data-key="t-detached">Detached</a>
-                                                                     </li>
-                                                                     <li class="nav-item">
-                                                                         <a href="layouts-two-column.html"
-                                                                             target="_blank" class="nav-link"
-                                                                             data-key="t-two-column">Two Column</a>
-                                                                     </li>
-                                                                     <li class="nav-item">
-                                                                         <a href="layouts-vertical-hovered.html"
-                                                                             target="_blank" class="nav-link"
-                                                                             data-key="t-hovered">Hovered</a>
+                                                                             data-key="t-order">All Orders</a>
                                                                      </li>
                                                                  </ul>
                                                              </div>
-                                                         </li> --}}
-                                                         <!-- end Dashboard Menu -->
-{{-- 
-                                                         <li class="menu-title">
-                                                             <i class="ri-more-fill"></i>
-                                                             <span data-key="t-pages">Pages</span>
                                                          </li>
-
+                                                         {{-- country manage --}}
+                                                         <li class="nav-item">
+                                                            <a class="nav-link menu-link collapsed"
+                                                                href="#sidebarCountries" data-bs-toggle="collapse"
+                                                                role="button" aria-expanded="false"
+                                                                aria-controls="sidebarCountries">
+                                                                <i class="bx bx-world"></i>
+                                                                <span data-key="t-countrymanage">Country Manage</span>
+                                                            </a>
+                                                            <div class="collapse menu-dropdown" id="sidebarCountries">
+                                                                <ul class="nav nav-sm flex-column">
+                                                                    <li class="nav-item">
+                                                                        <a href="{{ route('admin.all.countries') }}"
+                                                                            target="_blank" class="nav-link"
+                                                                            data-key="t-country">All Country</a>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="layouts-detached.html"
+                                                                            target="_blank" class="nav-link"
+                                                                            data-key="t-state">All states</a>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="layouts-vertical-hovered.html"
+                                                                            target="_blank" class="nav-link"
+                                                                            data-key="t-city">All Cities</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                          {{-- Vendor manage --}}
+                                                          <li class="nav-item">
+                                                            <a class="nav-link menu-link collapsed"
+                                                                href="#sidebarVendors" data-bs-toggle="collapse"
+                                                                role="button" aria-expanded="false"
+                                                                aria-controls="sidebarVendors">
+                                                                <i class="ri-group-fill"></i>
+                                                                <span data-key="t-vendormanage">Vendor Manage</span>
+                                                            </a>
+                                                            <div class="collapse menu-dropdown" id="sidebarVendors">
+                                                                <ul class="nav nav-sm flex-column">
+                                                                    <li class="nav-item">
+                                                                        <a href="layouts-horizontal.html"
+                                                                            target="_blank" class="nav-link"
+                                                                            data-key="t-listVendor">Vendor List</a>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="layouts-detached.html"
+                                                                            target="_blank" class="nav-link"
+                                                                            data-key="t-createVendor">Vendor Create</a>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="layouts-vertical-hovered.html"
+                                                                            target="_blank" class="nav-link"
+                                                                            data-key="t-settingVendor">Vendor Setting</a>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="layouts-vertical-hovered.html"
+                                                                            target="_blank" class="nav-link"
+                                                                            data-key="t-commissionVendor">Vendor Commission</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                         <!-- end Dashboard Menu -->
+                                                        {{-- attribute manage --}}
                                                          <li class="nav-item">
                                                              <a class="nav-link menu-link collapsed"
-                                                                 href="#sidebarAuth" data-bs-toggle="collapse"
+                                                                 href="#sidebarAttribute" data-bs-toggle="collapse"
                                                                  role="button" aria-expanded="false"
-                                                                 aria-controls="sidebarAuth">
-                                                                 <i class="ri-account-circle-line"></i>
+                                                                 aria-controls="sidebarAttribute">
+                                                                 <i class="ri-list-settings-fill"></i>
                                                                  <span
-                                                                     data-key="t-authentication">Authentication</span>
+                                                                     data-key="t-attribute">Attribute Manage</span>
                                                              </a>
-                                                             <div class="collapse menu-dropdown" id="sidebarAuth">
+                                                             <div class="collapse menu-dropdown" id="sidebarAttribute">
                                                                  <ul class="nav nav-sm flex-column">
                                                                      <li class="nav-item">
-                                                                         <a href="#sidebarSignIn"
-                                                                             class="nav-link collapsed"
-                                                                             data-bs-toggle="collapse" role="button"
-                                                                             aria-expanded="false"
-                                                                             aria-controls="sidebarSignIn"
-                                                                             data-key="t-signin">
-                                                                             Sign In
-                                                                         </a>
-                                                                         <div class="collapse menu-dropdown"
-                                                                             id="sidebarSignIn">
-                                                                             <ul class="nav nav-sm flex-column">
-                                                                                 <li class="nav-item">
-                                                                                     <a href="auth-signin-basic.html"
-                                                                                         class="nav-link"
-                                                                                         data-key="t-basic">
-                                                                                         Basic
-                                                                                     </a>
-                                                                                 </li>
-                                                                                 <li class="nav-item">
-                                                                                     <a href="auth-signin-cover.html"
-                                                                                         class="nav-link"
-                                                                                         data-key="t-cover">
-                                                                                         Cover
-                                                                                     </a>
-                                                                                 </li>
-                                                                             </ul>
-                                                                         </div>
-                                                                     </li>
-                                                                     <li class="nav-item">
+                                                                        <a href="layouts-detached.html"
+                                                                            target="_blank" class="nav-link"
+                                                                            data-key="t-catrgory">All Category</a>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="layouts-detached.html"
+                                                                            target="_blank" class="nav-link"
+                                                                            data-key="t-subcategory">All Subcategory</a>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="layouts-detached.html"
+                                                                            target="_blank" class="nav-link"
+                                                                            data-key="t-childcategory">All Childcategory</a>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="layouts-detached.html"
+                                                                            target="_blank" class="nav-link"
+                                                                            data-key="t-childcategory">All Brand</a>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="layouts-detached.html"
+                                                                            target="_blank" class="nav-link"
+                                                                            data-key="t-childcategory">All Brand</a>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="#sidebarSignIn"
+                                                                            class="nav-link collapsed"
+                                                                            data-bs-toggle="collapse" role="button"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="sidebarSignIn"
+                                                                            data-key="t-signin">
+                                                                            Sign In
+                                                                        </a>
+                                                                        <div class="collapse menu-dropdown"
+                                                                            id="sidebarSignIn">
+                                                                            <ul class="nav nav-sm flex-column">
+                                                                                <li class="nav-item">
+                                                                                    <a href="auth-signin-basic.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-basic">
+                                                                                        Basic
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="auth-signin-cover.html"
+                                                                                        class="nav-link"
+                                                                                        data-key="t-cover">
+                                                                                        Cover
+                                                                                    </a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+
+                                                                     {{-- <li class="nav-item">
                                                                          <a href="#sidebarSignUp"
                                                                              class="nav-link collapsed"
                                                                              data-bs-toggle="collapse" role="button"
@@ -936,11 +1492,11 @@
                                                                                  </li>
                                                                              </ul>
                                                                          </div>
-                                                                     </li>
+                                                                     </li> --}}
                                                                  </ul>
                                                              </div>
                                                          </li>
-
+                                                            {{-- pages --}}
                                                          <li class="nav-item">
                                                              <a class="nav-link menu-link collapsed"
                                                                  href="#sidebarPages" data-bs-toggle="collapse"
@@ -953,11 +1509,17 @@
                                                                  <ul class="nav nav-sm flex-column">
                                                                      <li class="nav-item">
                                                                          <a href="pages-starter.html" class="nav-link"
-                                                                             data-key="t-starter">
-                                                                             Starter
+                                                                             data-key="t-pages">
+                                                                             All pages
                                                                          </a>
                                                                      </li>
                                                                      <li class="nav-item">
+                                                                        <a href="pages-starter.html" class="nav-link"
+                                                                            data-key="t-addPage">
+                                                                            Add Page
+                                                                        </a>
+                                                                    </li>
+                                                                     {{-- <li class="nav-item">
                                                                          <a href="#sidebarProfile"
                                                                              class="nav-link collapsed"
                                                                              data-bs-toggle="collapse" role="button"
@@ -985,8 +1547,8 @@
                                                                                  </li>
                                                                              </ul>
                                                                          </div>
-                                                                     </li>
-                                                                     <li class="nav-item">
+                                                                     </li> --}}
+                                                                     {{-- <li class="nav-item">
                                                                          <a href="pages-team.html" class="nav-link"
                                                                              data-key="t-team">
                                                                              Team
@@ -1043,11 +1605,50 @@
                                                                              Search Results
                                                                          </a>
                                                                      </li>
-                                                                 </ul>
+                                                                 </ul> --}}
                                                              </div>
                                                          </li>
+                                                           {{-- pages --}}
+                                                           <li class="nav-item">
+                                                            <a class="nav-link menu-link collapsed"
+                                                                href="#sidebarBlogs" data-bs-toggle="collapse"
+                                                                role="button" aria-expanded="false"
+                                                                aria-controls="sidebarBlogs">
+                                                                <i class=" ri-edit-2-fill"></i>
+                                                                <span data-key="t-blogs">Blogs</span>
+                                                            </a>
+                                                            <div class="collapse menu-dropdown" id="sidebarBlogs">
+                                                                <ul class="nav nav-sm flex-column">
+                                                                    <li class="nav-item">
+                                                                        <a href="pages-starter.html" class="nav-link"
+                                                                            data-key="t-allBlog">
+                                                                            All Blogs
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                       <a href="pages-starter.html" class="nav-link"
+                                                                           data-key="t-blogCategory">
+                                                                           Category
+                                                                       </a>
+                                                                   </li>
+                                                                   <li class="nav-item">
+                                                                        <a href="pages-starter.html" class="nav-link"
+                                                                            data-key="t-addNewPost">
+                                                                            Add New Post
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a href="pages-starter.html" class="nav-link"
+                                                                            data-key="t-settingBlog">
+                                                                            Blog Page Setting
+                                                                        </a>
+                                                                    </li>
+                                                                  
+                                                                </ul> 
+                                                            </div>
+                                                        </li>
 
-                                                         <li class="nav-item">
+                                                         {{-- <li class="nav-item">
                                                              <a class="nav-link menu-link collapsed"
                                                                  href="#sidebarLanding" data-bs-toggle="collapse"
                                                                  role="button" aria-expanded="false"
@@ -1072,14 +1673,14 @@
                                                                      </li>
                                                                  </ul>
                                                              </div>
-                                                         </li>
+                                                         </li> --}}
 
-                                                         <li class="menu-title">
+                                                         {{-- <li class="menu-title">
                                                              <i class="ri-more-fill"></i>
                                                              <span data-key="t-components">Components</span>
-                                                         </li>
+                                                         </li> --}}
 
-                                                         <li class="nav-item">
+                                                         {{-- <li class="nav-item">
                                                              <a class="nav-link menu-link collapsed" href="#sidebarUI"
                                                                  data-bs-toggle="collapse" role="button"
                                                                  aria-expanded="false" aria-controls="sidebarUI">
@@ -1221,9 +1822,9 @@
                                                                      </div>
                                                                  </div>
                                                              </div>
-                                                         </li>
+                                                         </li> --}}
 
-                                                         <li class="nav-item">
+                                                         {{-- <li class="nav-item">
                                                              <a class="nav-link menu-link collapsed"
                                                                  href="#sidebarAdvanceUI" data-bs-toggle="collapse"
                                                                  role="button" aria-expanded="false"
@@ -1283,16 +1884,16 @@
                                                                      </li>
                                                                  </ul>
                                                              </div>
-                                                         </li>
+                                                         </li> --}}
 
-                                                         <li class="nav-item">
+                                                         {{-- <li class="nav-item">
                                                              <a class="nav-link menu-link" href="widgets.html">
                                                                  <i class="ri-honour-line"></i>
                                                                  <span data-key="t-widgets">Widgets</span>
                                                              </a>
-                                                         </li>
+                                                         </li> --}}
 
-                                                         <li class="nav-item">
+                                                         {{-- <li class="nav-item">
                                                              <a class="nav-link menu-link collapsed"
                                                                  href="#sidebarForms" data-bs-toggle="collapse"
                                                                  role="button" aria-expanded="false"
@@ -1372,9 +1973,9 @@
                                                                      </li>
                                                                  </ul>
                                                              </div>
-                                                         </li>
+                                                         </li> --}}
 
-                                                         <li class="nav-item">
+                                                         {{-- <li class="nav-item">
                                                              <a class="nav-link menu-link collapsed"
                                                                  href="#sidebarTables" data-bs-toggle="collapse"
                                                                  role="button" aria-expanded="false"
@@ -1405,9 +2006,9 @@
                                                                      </li>
                                                                  </ul>
                                                              </div>
-                                                         </li>
+                                                         </li> --}}
 
-                                                         <li class="nav-item">
+                                                         {{-- <li class="nav-item">
                                                              <a class="nav-link menu-link collapsed"
                                                                  href="#sidebarCharts" data-bs-toggle="collapse"
                                                                  role="button" aria-expanded="false"
@@ -1558,9 +2159,9 @@
                                                                      </li>
                                                                  </ul>
                                                              </div>
-                                                         </li>
+                                                         </li> --}}
 
-                                                         <li class="nav-item">
+                                                         {{-- <li class="nav-item">
                                                              <a class="nav-link menu-link collapsed"
                                                                  href="#sidebarIcons" data-bs-toggle="collapse"
                                                                  role="button" aria-expanded="false"
@@ -1598,9 +2199,9 @@
                                                                      </li>
                                                                  </ul>
                                                              </div>
-                                                         </li>
+                                                         </li> --}}
 
-                                                         <li class="nav-item">
+                                                         {{-- <li class="nav-item">
                                                              <a class="nav-link menu-link collapsed"
                                                                  href="#sidebarMaps" data-bs-toggle="collapse"
                                                                  role="button" aria-expanded="false"
@@ -1630,9 +2231,9 @@
                                                                      </li>
                                                                  </ul>
                                                              </div>
-                                                         </li>
+                                                         </li> --}}
 
-                                                         <li class="nav-item">
+                                                         {{-- <li class="nav-item">
                                                              <a class="nav-link menu-link collapsed"
                                                                  href="#sidebarMultilevel" data-bs-toggle="collapse"
                                                                  role="button" aria-expanded="false"
@@ -1705,6 +2306,18 @@
                                                                  </ul>
                                                              </div>
                                                          </li> --}}
+
+                                                          <li class="nav-item">
+                                                            <a class="nav-link menu-link"
+                                                             style="color: #ea2b2b"
+                                                             href="{{ route('web.home') }}"
+                                                                role="button"
+                                                                aria-controls="sidebarWebsites">
+                                                                <i class="ri-global-line"></i>
+                                                                <span data-key="t-website">Website</span>
+                                                            </a>
+                                                            
+                                                        </li>
                                                      </div>
                                                  </div>
                                              </div>

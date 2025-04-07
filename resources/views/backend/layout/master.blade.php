@@ -61,8 +61,6 @@
 
 {{-- javascript --}}
 @include('backend.includes.footer-link')
- 
-
 
 </body>
 </html>
