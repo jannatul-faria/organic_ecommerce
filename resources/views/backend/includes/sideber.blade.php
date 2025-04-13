@@ -1094,12 +1094,12 @@
                                                                  <ul class="nav nav-sm flex-column">
                                                                      <li class="nav-item">
                                                                          <a href="layouts-horizontal.html"
-                                                                             target="_blank" class="nav-link"
+                                                                          class="nav-link"
                                                                              data-key="t-vendor">All Vendors</a>
                                                                      </li>
                                                                      <li class="nav-item">
                                                                          <a href="layouts-detached.html"
-                                                                             target="_blank" class="nav-link"
+                                                                          class="nav-link"
                                                                              data-key="t-order">All Orders</a>
                                                                      </li>
                                                                  </ul>
@@ -1118,17 +1118,17 @@
                                                                 <ul class="nav nav-sm flex-column">
                                                                     <li class="nav-item">
                                                                         <a href="{{ route('admin.all.countries') }}"
-                                                                            target="_blank" class="nav-link"
+                                                                             class="nav-link"
                                                                             data-key="t-country">All Country</a>
                                                                     </li>
                                                                     <li class="nav-item">
-                                                                        <a href="layouts-detached.html"
-                                                                            target="_blank" class="nav-link"
+                                                                        <a href="{{ route('admin.all.states') }}"
+                                                                             class="nav-link"
                                                                             data-key="t-state">All states</a>
                                                                     </li>
                                                                     <li class="nav-item">
-                                                                        <a href="layouts-vertical-hovered.html"
-                                                                            target="_blank" class="nav-link"
+                                                                        <a href="{{ route('admin.all.cities') }}"
+                                                                           class="nav-link"
                                                                             data-key="t-city">All Cities</a>
                                                                     </li>
                                                                 </ul>
@@ -1147,22 +1147,22 @@
                                                                 <ul class="nav nav-sm flex-column">
                                                                     <li class="nav-item">
                                                                         <a href="layouts-horizontal.html"
-                                                                            target="_blank" class="nav-link"
+                                                                          class="nav-link"
                                                                             data-key="t-listVendor">Vendor List</a>
                                                                     </li>
                                                                     <li class="nav-item">
                                                                         <a href="layouts-detached.html"
-                                                                            target="_blank" class="nav-link"
+                                                                         class="nav-link"
                                                                             data-key="t-createVendor">Vendor Create</a>
                                                                     </li>
                                                                     <li class="nav-item">
                                                                         <a href="layouts-vertical-hovered.html"
-                                                                            target="_blank" class="nav-link"
+                                                                           class="nav-link"
                                                                             data-key="t-settingVendor">Vendor Setting</a>
                                                                     </li>
                                                                     <li class="nav-item">
                                                                         <a href="layouts-vertical-hovered.html"
-                                                                            target="_blank" class="nav-link"
+                                                                         class="nav-link"
                                                                             data-key="t-commissionVendor">Vendor Commission</a>
                                                                     </li>
                                                                 </ul>
@@ -1183,27 +1183,27 @@
                                                                  <ul class="nav nav-sm flex-column">
                                                                      <li class="nav-item">
                                                                         <a href="layouts-detached.html"
-                                                                            target="_blank" class="nav-link"
+                                                                         class="nav-link"
                                                                             data-key="t-catrgory">All Category</a>
                                                                     </li>
                                                                     <li class="nav-item">
                                                                         <a href="layouts-detached.html"
-                                                                            target="_blank" class="nav-link"
+                                                                         class="nav-link"
                                                                             data-key="t-subcategory">All Subcategory</a>
                                                                     </li>
                                                                     <li class="nav-item">
                                                                         <a href="layouts-detached.html"
-                                                                            target="_blank" class="nav-link"
+                                                                         class="nav-link"
                                                                             data-key="t-childcategory">All Childcategory</a>
                                                                     </li>
                                                                     <li class="nav-item">
                                                                         <a href="layouts-detached.html"
-                                                                            target="_blank" class="nav-link"
+                                                                         class="nav-link"
                                                                             data-key="t-childcategory">All Brand</a>
                                                                     </li>
                                                                     <li class="nav-item">
                                                                         <a href="layouts-detached.html"
-                                                                            target="_blank" class="nav-link"
+                                                                         class="nav-link"
                                                                             data-key="t-childcategory">All Brand</a>
                                                                     </li>
                                                                     <li class="nav-item">
@@ -2312,6 +2312,7 @@
                                                              style="color: #ea2b2b"
                                                              href="{{ route('web.home') }}"
                                                                 role="button"
+                                                                target="_blank" 
                                                                 aria-controls="sidebarWebsites">
                                                                 <i class="ri-global-line"></i>
                                                                 <span data-key="t-website">Website</span>

@@ -7,20 +7,20 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header p-4 d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-0">All Countries</h5>
-                        <div class="add-country ">
+                        <h5 class="card-title mb-0">All cities</h5>
+                        <div class="add-city ">
                             <!-- Grids in modals -->
-                            <a href="{{ route('admin.add.country') }}" class="btn btn-primary waves-effect waves-light">
-                                Add new country in new page
+                            <a href="{{ route('admin.add.city') }}" class="btn btn-primary waves-effect waves-light">
+                                Add new city in new page
                             </a>
                             <button type="button"class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                               Add new country
+                               Add new city
                             </button>
-                            <div class="modal fade" id="exampleModalgrid" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                            {{-- <div class="modal fade" id="exampleModalgrid" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalgridLabel">Add Country</h5>
+                                            <h5 class="modal-title" id="exampleModalgridLabel">Add city</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -78,7 +78,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="card-body">
@@ -92,12 +92,14 @@
                                     </th>
                                     <th>Id</th>
                                     <th>Name</th>
+                                    <th>Country Name</th>
+                                    <th>State Name</th>
                                     <th>status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($countries as $key=>$value)
+                                @foreach ($cities as $key=>$value)
                                 <tr>
                                     <th scope="row">
                                         <div class="form-check">
@@ -106,6 +108,9 @@
                                     </th>
                                     <td>{{  $key+1 }}</td>
                                     <td><a href="#!">{{ $value->name }}</a></td>
+                                    <td><a href="#!">{{ $value->country->name }}</a></td>
+                                    <td><a href="#!">{{ $value->state->name }}</a></td>
+
                                     @if ($value->status == 1)
                                     
                                         <td><span class="badge rounded-pill bg-success">{{ __('Active') }}</span></td>

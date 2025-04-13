@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Http\Controllers\Backend;
+
+use App\Http\Controllers\Controller;
+use App\Models\City;
+use App\Models\Country;
+use App\Models\State;
+use Illuminate\Http\Request;
+
+class CityController extends Controller
+{
+     //allCities
+     public function allCities(){
+        $cities = City::with('country','state')->latest()->get();
+        return view('backend.pages.city.all-cities', compact('cities'));
+    }
+    public function addCity(){
+        $countries = Country::all();
+        $states = State::all();
+        return view('backend.pages.city.add-city',compact('countries','states'));
+    }
+    public function storeCity(Request $request){
+    //    dd( $request->all());
+        $request->validate([
+            'name'=> 'required|string|unique:cities,name|max:255',
+            'country_name'=> 'required',
+            'state_name'=>'required',
+            'status'=> 'nullable|boolean',
+        ]);
+
+        $city = city::create([
+            'name'=>$request->name,
+            'country_id'=>$request->country_name,
+            'state_id'=> $request->state_name,
+            'status'=>$request->status,
+        ]);
+        if($city){
+            $city->update([
+                'name'=>$request->name,
+                'country_id'=>$request->country_name,
+                'state_id'=> $request->state_name,
+                'status'=>$request->status,
+            ]);
+        }
+        return redirect()->route('admin.all.cities')->with('success',[($city->wasRecentlyCreated ?'Create': 'Update').' city successfully!'] );
+}
+}

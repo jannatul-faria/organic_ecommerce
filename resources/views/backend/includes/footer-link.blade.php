@@ -6,7 +6,7 @@
     <script src="{{ asset('assets/backend') }}/js/pages/plugins/lord-icon-2.1.0.js"></script>
     <script src="{{ asset('assets/backend') }}/js/plugins.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
      <!--datatable js-->
      <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
      <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
@@ -17,7 +17,8 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
- 
+     {{-- {!! Toastr::message() !!} --}}
+
      <script src="{{ asset('assets/backend') }}/js/pages/datatables.init.js"></script>
     <script
       type="text/javascript"
@@ -70,6 +71,7 @@
     ><!-- App js -->
     <script src="{{ asset('assets/backend') }}/js/app.js"></script>
   <div class="flatpickr-calendar rangeMode animate" tabindex="-1">
+
       <div class="flatpickr-months">
         <span class="flatpickr-prev-month"
           ><svg

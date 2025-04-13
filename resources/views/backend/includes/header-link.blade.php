@@ -35,7 +35,7 @@
 <link href="{{ asset('assets/backend') }}/css/app.min.css" rel="stylesheet" type="text/css" />
 <!-- custom Css-->
 <link href="{{ asset('assets/backend') }}/css/custom.min.css" rel="stylesheet" type="text/css" />
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <style id="apexcharts-css">
   .apexcharts-canvas {
     position: relative;
