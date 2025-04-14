@@ -12,11 +12,11 @@ class StateController extends Controller
     //allStates
     public function allStates(){
         $states = State::with('country')->latest()->get();
-        return view('backend.pages.state.all-states', compact('states'));
+        return view('backend.pages.country-manage.state.all-states', compact('states'));
     }
     public function addState(){
         $countries = Country::all();
-        return view('backend.pages.state.add-state',compact('countries'));
+        return view('backend.pages.country-manage.state.add-state',compact('countries'));
     }
     public function storeState(Request $request){
     //    dd( $request->all());
@@ -39,5 +39,14 @@ class StateController extends Controller
             ]);
         }
         return redirect()->route('admin.all.states')->with('success',[($state->wasRecentlyCreated ?'Create': 'Update').' state successfully!'] );
+    }
+
+     //deleteState
+     public function deleteState(Request $request, $id){
+        $state = State::findOrFail($id);
+        $state->delete();
+        return response()->json([
+            'success'=>true,
+        ]);
     }
 }

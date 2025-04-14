@@ -7,20 +7,20 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header p-4 d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-0">All cities</h5>
-                        <div class="add-city ">
+                        <h5 class="card-title mb-0">All Countries</h5>
+                        <div class="add-country ">
                             <!-- Grids in modals -->
-                            <a href="{{ route('admin.add.city') }}" class="btn btn-primary waves-effect waves-light">
-                                Add new city in new page
+                            <a href="{{ route('admin.add.country') }}" class="btn btn-primary waves-effect waves-light">
+                                Add new country
                             </a>
-                            <button type="button"class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                               Add new city
-                            </button>
-                            {{-- <div class="modal fade" id="exampleModalgrid" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                            {{-- <button type="button"class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                               Add new country
+                            </button> --}}
+                            <div class="modal fade" id="exampleModalgrid" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalgridLabel">Add city</h5>
+                                            <h5 class="modal-title" id="exampleModalgridLabel">Add Country</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -78,7 +78,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                     <div class="card-body">
@@ -92,14 +92,12 @@
                                     </th>
                                     <th>Id</th>
                                     <th>Name</th>
-                                    <th>Country Name</th>
-                                    <th>State Name</th>
                                     <th>status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($cities as $key=>$value)
+                                @foreach ($countries as $key=>$value)
                                 <tr>
                                     <th scope="row">
                                         <div class="form-check">
@@ -108,9 +106,6 @@
                                     </th>
                                     <td>{{  $key+1 }}</td>
                                     <td><a href="#!">{{ $value->name }}</a></td>
-                                    <td><a href="#!">{{ $value->country->name }}</a></td>
-                                    <td><a href="#!">{{ $value->state->name }}</a></td>
-
                                     @if ($value->status == 1)
                                     
                                         <td><span class="badge rounded-pill bg-success">{{ __('Active') }}</span></td>
@@ -120,7 +115,7 @@
                                     <td>
                                         <div class="hstack gap-3 flex-wrap">
                                             <a href="javascript:void(0);" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
-                                            <a href="javascript:void(0);" class="link-danger fs-15"><i class="ri-delete-bin-line"></i></a>
+                                            <a href="javascript:void(0);"data-id="{{ $value->id }}" class="delete-btn link-danger fs-15"><i class="ri-delete-bin-line"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -135,4 +130,52 @@
     <!-- container-fluid -->
   </div>
 @endsection
+@push('scripts')
+<script>
+    $(document).ready(function() {
+        $(document).on('click', '.delete-btn', function(){
+        // $('.delete-btn').on('click', function() {
+            var countryId = $(this).data('id');
+            var $row = $(this).closest('tr');
+    
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "This action cannot be undone!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: 'delete-country/' + countryId,
+                        type: 'DELETE',
+                        data: {
+                            _token: '{{ csrf_token() }}'
+                        },
+                        success: function(response) {
+                            Swal.fire(
+                                'Deleted!',
+                                'The country has been deleted.',
+                                'success'
+                            );
+                            $row.remove();
+                            // window.location.reload();
+                        },
+                        error: function(xhr) {
+                            Swal.fire(
+                                'Error!',
+                                'Something went wrong.',
+                                'error'
+                            );
+                        }
+                    });
+                }
+            });
+        });
+    });
+    </script>
+    
+@endpush
    

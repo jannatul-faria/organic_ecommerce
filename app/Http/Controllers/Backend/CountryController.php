@@ -12,10 +12,10 @@ class CountryController extends Controller
     //allcountries
     public function allcountries(){
         $countries = Country::latest()->get();
-        return view('backend.pages.country.all-countries', compact('countries'));
+        return view('backend.pages.country-manage.country.all-countries', compact('countries'));
     }
     public function addCountry(){
-        return view('backend.pages.country.add-country');
+        return view('backend.pages.country-manage.country.add-country');
     }
     public function storeCountry(Request $request){
     //    dd( $request->all());
@@ -35,6 +35,15 @@ class CountryController extends Controller
             ]);
         }
         return redirect()->route('admin.all.countries')->with('success',[($country->wasRecentlyCreated ?'Create': 'Update').' country successfully!'] );
+    }
+
+    //deleteCountry
+    public function deleteCountry(Request $request, $id){
+        $country = Country::findOrFail($id);
+        $country->delete();
+        return response()->json([
+            'success'=>true,
+        ]);
     }
     
 }

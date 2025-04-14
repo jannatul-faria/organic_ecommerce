@@ -20,14 +20,14 @@
      {{-- {!! Toastr::message() !!} --}}
 
      <script src="{{ asset('assets/backend') }}/js/pages/datatables.init.js"></script>
-    <script
+    {{-- <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
-    ></script>
-    <script
+    ></script> --}}
+    {{-- <script
       type="text/javascript"
-      src="{{ asset('assets/backend') }}/libs/choices.js/public/{{ asset('assets/backend') }}/scripts/choices.min.js"
-    ></script>
+      src="{{ asset('assets/backend') }}/scripts/choices.min.js"
+    ></script> --}}
     <script
       type="text/javascript"
       src="{{ asset('assets/backend') }}/libs/flatpickr/flatpickr.min.js"
@@ -436,3 +436,4 @@
      <div class="jvm-tooltip" style="top: 559.5px; left: 1177.88px">
       Palestine
     </div> 
+    @stack('scripts')

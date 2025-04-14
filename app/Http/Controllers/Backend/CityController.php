@@ -13,12 +13,12 @@ class CityController extends Controller
      //allCities
      public function allCities(){
         $cities = City::with('country','state')->latest()->get();
-        return view('backend.pages.city.all-cities', compact('cities'));
+        return view('backend.pages.country-manage.city.all-cities', compact('cities'));
     }
     public function addCity(){
         $countries = Country::all();
         $states = State::all();
-        return view('backend.pages.city.add-city',compact('countries','states'));
+        return view('backend.pages.country-manage.city.add-city',compact('countries','states'));
     }
     public function storeCity(Request $request){
     //    dd( $request->all());
@@ -44,5 +44,20 @@ class CityController extends Controller
             ]);
         }
         return redirect()->route('admin.all.cities')->with('success',[($city->wasRecentlyCreated ?'Create': 'Update').' city successfully!'] );
-}
+    }
+
+    // getStates
+    public function getStates(Request $request){
+        $states= State::where('country_id', $request->country_id)->pluck('name','id');
+        return response()->json($states);
+    }
+
+     //deleteState
+     public function deleteCity(Request $request, $id){
+        $city = City::findOrFail($id);
+        $city->delete();
+        return response()->json([
+            'success'=>true,
+        ]);
+    }
 }

@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\State;
+use App\Models\Subscriber;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
@@ -49,5 +50,7 @@ class DatabaseSeeder extends Seeder
                 ->has(\App\Models\City::factory()->count(3))
         )
         ->create();
+
+        \App\Models\Subscriber::factory()->count(20)->create();
     }
 }

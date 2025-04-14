@@ -609,8 +609,8 @@
                                                             <div class="collapse menu-dropdown" id="sidebarNewsletter">
                                                                 <ul class="nav nav-sm flex-column">
                                                                     <li class="nav-item">
-                                                                        <a href="apps-calendar.html" class="nav-link"
-                                                                            data-key="t-calendar">
+                                                                        <a href="{{ route('admin.all.subscriber') }}" class="nav-link"
+                                                                            data-key="t-subscribe">
                                                                             All Subscribers
                                                                         </a>
                                                                     </li>

@@ -27,7 +27,9 @@
                                 <div class="col-xxl-6">
                                     <div>
                                         <label for="country_name" class="form-label">Country Name</label>
-                                        <select class="form-select mb-3" aria-label="country_name" name="country_name">
+                                        <select class="form-select mb-3" aria-label="country_name"
+                                        id="country_name"
+                                        name="country_name">
                                             <option selected>Select one</option>
                                             @foreach ($countries as $key=>$value)
                                                 <option value="{{ $value->id }}">{{ $value->name }}</option>
@@ -37,8 +39,10 @@
                                 </div><!--end col-->
                                 <div class="col-xxl-6">
                                     <div>
-                                        <label for="state_name" class="form-label">Country Name</label>
-                                        <select class="form-select mb-3" aria-label="state_name" name="state_name">
+                                        <label for="state_name" class="form-label">State Name</label>
+                                        <select class="form-select mb-3" aria-label="state_name"
+                                        id="state_name"
+                                         name="state_name">
                                             <option selected>Select one</option>
                                             @foreach ($states as $key=>$value)
                                                 <option value="{{ $value->id }}">{{ $value->name }}</option>
@@ -73,4 +77,27 @@
     <!-- container-fluid -->
   </div>
 @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function(){
+            $('#country_name').on('change', function(){
+                var country_id = this.value;
+
+                $('#state_name').html('<option value = "" > Loading... </option>');
+
+                $.ajax({
+                    url: '/admin/get-states',
+                    type: 'GET',
+                    data: { country_id: country_id },
+                    success: function(states){
+                        $('#state_name').html('<option value = "" > Select one </option>');
+                        $.each(states, function(key, value){
+                            $('#state_name').append('<option value = "'+ key +'" >'+ value +' </option>');
+                        });
+                    }
+                })
+            })
+        })
+    </script>
+@endpush
    
