@@ -7,20 +7,38 @@
             <div class="col-lg-12">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalgridLabel">Add Country</h5>
-                        <a href="{{ route('admin.all.countries') }}" class="btn btn-light" >Back</a>
+                        <h5 class="modal-title" id="exampleModalgridLabel">Add category</h5>
+                        <a href="{{ route('admin.all.categories') }}" class="btn btn-light" >Back</a>
                        
                     </div>
                     <div class="modal-body">
-                        <form action="{{ route('admin.store.country') }}" method="post">
+                        <form action="{{ route('admin.store.category') }}" method="post">
                             @csrf
                             <div class="row g-3">
                                 <div class="col-xxl-6">
                                     <div>
-                                        <label for="name" class="form-label">Country Name</label>
-                                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter Country name">
+                                        <label for="name" class="form-label">category Name</label>
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter category name">
                                     </div>
                                     @error('name')
+                                    <p class="text-danger" >{{ $message }}</p>
+                                    @enderror
+                                </div><!--end col-->
+                                <div class="col-xxl-6">
+                                    <div>
+                                        <label for="description" class="form-label">Description</label>
+                                        <textarea name="description" class="form-control"   placeholder="Write description...."rows="1"></textarea>
+                                    </div>
+                                    @error('description')
+                                    <p class="text-danger" >{{ $message }}</p>
+                                    @enderror
+                                </div><!--end col-->
+                                <div class="col-xxl-6">
+                                    <div>
+                                        <label for="image" class="form-label">Image Upload</label>
+                                        <input type="file" name="image" id="" class="form-control">
+                                    </div>
+                                    @error('image')
                                     <p class="text-danger" >{{ $message }}</p>
                                     @enderror
                                 </div><!--end col-->

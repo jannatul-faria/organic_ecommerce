@@ -10,7 +10,20 @@ class SubscriberController extends Controller
 {
     //allSubscribers
     public function allSubscribers(){
-        $subcribers =Subscriber::all();
+        $subcribers =Subscriber::latest()->get();
         return view('backend.pages.newsletter.subscribe.all-subscribers', compact('subcribers'));
+    }
+    //storeSubscriber
+    public function storeSubscriber(Request $request){
+        // dd($request->all());
+        $request->validate([
+            'email'=> 'required|email|unique:subscribers,email',
+        ]);
+        Subscriber::create([
+            'email' => $request->email,
+            'is_subscribed' => true,
+            'subscribed_at' => now(),
+        ]);
+        response()->json(['success' => true]);
     }
 }

@@ -39,11 +39,14 @@
                     <div class="footer__widget">
                         <h6>Join Our Newsletter Now</h6>
                         <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
+                        <form action="#" class="subscriber m-0">
+                            <input type="email" placeholder="Enter your mail" name="email">
+                            <button type="submit" class="subscriber-btn site-btn">Subscribe</button>
+                           
                         </form>
-                        <div class="footer__widget__social">
+                        <p class="subscribe-ms" hidden></p>
+
+                        <div class="footer__widget__social mt-4">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -72,3 +75,55 @@
             </div>
         </div>
     </footer>
+    @push('scripts')
+    <script>
+        $(document).ready(function () {
+            $('.subscriber').on('submit', function (e) {
+                e.preventDefault();
+        
+                var $form = $(this);
+                var $btn = $form.find('.subscriber-btn');
+                var $msg = $('.subscribe-ms');
+                var email = $form.find('input[name="email"]').val();
+        
+                // Set button state to "Sending..."
+                $btn.prop('disabled', true).text('Sending...');
+        
+                // Clear and hide previous message
+                $msg.text('').attr('hidden', true).removeClass('text-success text-danger');
+        
+                $.ajax({
+                    url: "{{ route('store.subscriber') }}",
+                    type: "POST",
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        email: email
+                    },
+                    success: function (response) {
+                        $msg
+                            .removeAttr('hidden')
+                            .addClass('text-success')
+                            .text('You have successfully subscribed!');
+                        
+                        $form[0].reset();
+                    },
+                    error: function (xhr) {
+                        let message = 'Something went wrong. Please try again.';
+                        if (xhr.responseJSON && xhr.responseJSON.errors && xhr.responseJSON.errors.email) {
+                            message = xhr.responseJSON.errors.email[0];
+                        }
+        
+                        $msg
+                            .removeAttr('hidden')
+                            .addClass('text-danger')
+                            .text(message);
+                    },
+                    complete: function () {
+                        // Restore button after request finishes
+                        $btn.prop('disabled', false).text('Subscribe');
+                    }
+                });
+            });
+        });
+    </script>
+    @endpush

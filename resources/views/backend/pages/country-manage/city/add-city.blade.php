@@ -30,7 +30,7 @@
                                         <select class="form-select mb-3" aria-label="country_name"
                                         id="country_name"
                                         name="country_name">
-                                            <option selected>Select one</option>
+                                             <option value="">Select one</option>
                                             @foreach ($countries as $key=>$value)
                                                 <option value="{{ $value->id }}">{{ $value->name }}</option>
                                             @endforeach
@@ -43,7 +43,7 @@
                                         <select class="form-select mb-3" aria-label="state_name"
                                         id="state_name"
                                          name="state_name">
-                                            <option selected>Select one</option>
+                                             <option value="">Select one</option>
                                             @foreach ($states as $key=>$value)
                                                 <option value="{{ $value->id }}">{{ $value->name }}</option>
                                             @endforeach
@@ -54,7 +54,7 @@
                                     <div>
                                         <label for="status" class="form-label">Status</label>
                                         <select class="form-select mb-3" aria-label="status" name="status">
-                                            <option selected>Select one</option>
+                                             <option value="">Select one</option>
                                             <option value="1">Active</option>
                                             <option value="2">Inactive</option>
                                         </select>

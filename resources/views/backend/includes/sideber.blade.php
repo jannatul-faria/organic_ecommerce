@@ -1182,17 +1182,17 @@
                                                              <div class="collapse menu-dropdown" id="sidebarAttribute">
                                                                  <ul class="nav nav-sm flex-column">
                                                                      <li class="nav-item">
-                                                                        <a href="layouts-detached.html"
+                                                                        <a href="{{ route('admin.all.categories') }}"
                                                                          class="nav-link"
                                                                             data-key="t-catrgory">All Category</a>
                                                                     </li>
                                                                     <li class="nav-item">
-                                                                        <a href="layouts-detached.html"
+                                                                        <a href="{{ route('admin.all.sub.categories') }}"
                                                                          class="nav-link"
                                                                             data-key="t-subcategory">All Subcategory</a>
                                                                     </li>
                                                                     <li class="nav-item">
-                                                                        <a href="layouts-detached.html"
+                                                                        <a href="{{ route('admin.all.child.categories') }}"
                                                                          class="nav-link"
                                                                             data-key="t-childcategory">All Childcategory</a>
                                                                     </li>

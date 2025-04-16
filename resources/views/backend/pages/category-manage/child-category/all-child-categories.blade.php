@@ -2,18 +2,17 @@
 
 @section('content')
     <div class="page-content">
-    <div class="container-fluid">
+    <div class="container-fluid"  id="childCategoryList">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header p-4 d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-0">All cities</h5>
-                        <div class="add-subscribe ">
+                        <h5 class="card-title mb-0">All child categories</h5>
+                        <div class="add-child category ">
                             <!-- Grids in modals -->
-                            <a href="" class="btn btn-primary waves-effect waves-light d-flex align-center justify-center">
-                               <i class="ri-mail-send-fill me-2 "></i> Send mail
+                            <a href="{{ route('admin.add.child.category') }}" class="btn btn-primary waves-effect waves-light">
+                                Add new child category 
                             </a>
-                          
                         </div>
                     </div>
                     <div class="card-body">
@@ -26,13 +25,15 @@
                                         </div>
                                     </th>
                                     <th>Id</th>
-                                    <th>Email</th>
-                                    <th>Date</th>
+                                    <th>Name</th>
+                                    <th>Category Name</th>
+                                    <th>Sub Category Name</th>
+                                    <th>status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($subcribers as $key=>$value)
+                                @foreach ($childCategories as $key=>$value)
                                 <tr>
                                     <th scope="row">
                                         <div class="form-check">
@@ -40,19 +41,20 @@
                                         </div>
                                     </th>
                                     <td>{{  $key+1 }}</td>
-                                    <td><a href="#!">{{ $value->email }}</a></td>
-                                    @php
-                                        $date = \Carbon\Carbon::parse($value->subscribed_at)->format('d M, Y');
-                                        $time = \Carbon\Carbon::parse($value->subscribed_at)->format('h:m A');
-                                    @endphp
-                                    <td>{{ $date .__(' at '). $time}}</td>
+                                    <td><a href="#!">{{ $value->name }}</a></td>
+                                    <td><a href="#!">{{ $value->category->name }}</a></td>
+                                    <td><a href="#!">{{ $value->subCategory->name }}</a></td>
+
+                                    @if ($value->status == 1)
+                                    
+                                        <td><span class="badge rounded-pill bg-success">{{ __('Active') }}</span></td>
+                                    @else
+                                        <td><span class="badge rounded-pill bg-danger">{{ __('Inactive') }}</span>
+                                    @endif
                                     <td>
                                         <div class="hstack gap-3 flex-wrap">
                                             <a href="javascript:void(0);" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
-                                    
-                                            <a href="javascript:void(0);" data-id="{{ $value->id }}" id="deletesubscribe" class="link-danger fs-15"><i class="ri-delete-bin-line"></i></a>
-                                            <a href="javascript:void(0);"  class="text-primary fs-15"><i class="ri-mail-send-line"></i></a>
-                                            
+                                            <a href="javascript:void(0);" data-id="{{ $value->id }}" id="deleteChildCategory" class="link-danger fs-15"><i class="ri-delete-bin-line"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -67,11 +69,11 @@
     <!-- container-fluid -->
   </div>
 @endsection
-{{-- @push('scripts')
+@push('scripts')
     <script>
         $(document).ready(function(){
-            $(document).on('click', '#deletesubscribe', function(){
-                var subscribeId = $(this).data('id');
+            $(document).on('click', '#deleteChildCategory', function(){
+                var childCategoryId = $(this).data('id');
                 var $row = $(this).closest('tr');
 
                 Swal.fire({
@@ -85,7 +87,7 @@
                 }).then((result) => {
                     if (result.isConfirmed){
                         $.ajax({
-                            url: 'delete-subscribe/' + subscribeId,
+                            url: 'delete-child-category/'+childCategoryId,
                         type: 'DELETE',
                         data: {
                             _token: '{{ csrf_token() }}'
@@ -93,10 +95,17 @@
                         success: function(response) {
                             Swal.fire(
                                 'Deleted!',
-                                'The subscribe has been deleted.',
+                                'The child category has been deleted.',
                                 'success'
                             );
                             $row.remove();
+                            if (response.success) {
+                               $('#childCategoryList').load(location.href + " #childCategoryList > *");
+                            }
+                            // if(response.success){
+                            //     $.('#childCategoryList').load(location.href + "#childCategoryList > *");
+                            // }
+                          
                             // window.location.reload();
                         },
                         error: function(response) {
@@ -113,4 +122,4 @@
             })
         })    
     </script>    
-@endpush --}}
+@endpush

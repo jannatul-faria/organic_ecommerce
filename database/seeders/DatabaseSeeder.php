@@ -52,5 +52,7 @@ class DatabaseSeeder extends Seeder
         ->create();
 
         \App\Models\Subscriber::factory()->count(20)->create();
+        \App\Models\Category::factory()->count(20)->create();
+
     }
 }

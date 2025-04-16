@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\SubscriberController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\WebsiteController;
 use App\Http\Controllers\UserController;
@@ -20,6 +21,9 @@ Route::get('/contact-us', [WebsiteController::class, 'contactUs'])->name('web.co
 
 Route::get('/check-out', [WebsiteController::class, 'checkOut'])->name('web.checkOut');
 Route::get('/pages/{slug}', [WebsiteController::class, 'singlePage'])->name('web.singlePage');
+
+
+Route::post('/store-subscribers',[SubscriberController::class, 'storeSubscriber'])->name('store.subscriber');
 
 
 
