@@ -34,8 +34,8 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::post('add-states', [StateController::class, 'storeState'])->name('store.state');
     Route::delete('delete-state/{id}', [StateController::class, 'deleteState'])->name('delete.state');
 
-    Route::get('edit-states/{id}', [StateController::class, 'editState'])->name('edit.state');
-    Route::put('update-states/{id}', [StateController::class, 'updateState'])->name('update.state');
+    Route::get('edit-state/{id}', [StateController::class, 'editState'])->name('edit.state');
+    Route::put('update-state/{id}', [StateController::class, 'updateState'])->name('update.state');
 
 
      // city manage
@@ -45,8 +45,8 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::delete('delete-city/{id}', [CityController::class, 'deleteCity'])->name('delete.city');
     Route::get('get-states',[CityController::class, 'getStates']);
 
-    Route::get('edit-country/{id}', [CountryController::class, 'editCountry'])->name('edit.country');
-    Route::put('update-country/{id}', [CountryController::class, 'updateCountry'])->name('update.country');
+    Route::get('edit-city/{id}', [CityController::class, 'editCity'])->name('edit.city');
+    Route::put('update-city/{id}', [CityController::class, 'updateCity'])->name('update.city');
 
     
 // subscriber
@@ -59,12 +59,18 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::post('add-category', [CategoryController::class, 'storeCategory'])->name('store.category');
     Route::delete('delete-category/{id}', [CategoryController::class, 'deleteCategory'])->name('delete.category');
 
+    Route::get('edit-category/{id}', [CategoryController::class, 'editCategory'])->name('edit.category');
+    Route::put('update-category/{id}', [CategoryController::class, 'updateCategory'])->name('update.category');
+
      // sub-category manage:
-     Route::get('all-sub-categories', [SubCategoryController::class, 'allSubCategories'])->name('all.sub.categories');
-     Route::get('add-sub-category', [SubCategoryController::class, 'addSubCategory'])->name('add.sub.category');
-     Route::post('add-sub-category', [SubCategoryController::class, 'storeSubCategory'])->name('store.sub.category');
-     Route::delete('delete-sub-category/{id}', [SubCategoryController::class, 'deleteSubCategory'])->name('delete.sub.category');
+    Route::get('all-sub-categories', [SubCategoryController::class, 'allSubCategories'])->name('all.sub.categories');
+    Route::get('add-sub-category', [SubCategoryController::class, 'addSubCategory'])->name('add.sub.category');
+    Route::post('add-sub-category', [SubCategoryController::class, 'storeSubCategory'])->name('store.sub.category');
+    Route::delete('delete-sub-category/{id}', [SubCategoryController::class, 'deleteSubCategory'])->name('delete.sub.category');
  
+    Route::get('edit-sub-category/{id}', [SubCategoryController::class, 'editSubCategory'])->name('edit.sub.category');
+    Route::put('update-sub-category/{id}', [SubCategoryController::class, 'updateSubCategory'])->name('update.sub.category');
+
     // child-category manage:
     Route::get('all-child-categories', [ChildCategoryController::class, 'allChildCategories'])->name('all.child.categories');
     Route::get('add-child-category', [ChildCategoryController::class, 'addChildCategory'])->name('add.child.category');
@@ -73,5 +79,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
     Route::get('get-sub-categories',[ChildCategoryController::class, 'getSubCategory']);
 
+    Route::get('edit-child-category/{id}', [ChildCategoryController::class, 'editChildCategory'])->name('edit.child.category');
+    Route::put('update-child-category/{id}', [ChildCategoryController::class, 'updateChildCategory'])->name('update.child.category');
 
 });

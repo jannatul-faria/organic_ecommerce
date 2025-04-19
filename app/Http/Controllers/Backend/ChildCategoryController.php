@@ -69,4 +69,36 @@ class ChildCategoryController extends Controller
                 'success'=>true,
             ]);
         }
+
+        public function editChildCategory($id){
+            $childCategory = ChildCategory::where('id', $id)->with(['category','subCategory'])->first();
+            $categories = Category::all();
+            $subCategories = SubCategory::all();
+            // dd($subCategories);
+            return view('backend.pages.category-manage.child-category.update-child-category', compact('childCategory','categories','subCategories'));
+        }
+    
+        public function updateChildCategory(Request $request, $id)
+        {
+            $request->validate([
+                'name'=> 'required',
+                'category_name'=> 'required',
+                'sub_category_name'=>'required',
+                'description'=>'required|string|max:255',
+                'status'=> 'nullable',
+            ]);
+            $childCategory = ChildCategory::findOrFail($id);
+            $childCategory->update([
+                'name'=>$request->name,
+                'description' =>$request->description,
+                'slug'=>Str::slug($request->name),
+                'status'=>$request->status,
+                'category_id'=>$request->category_name,
+                'sub_category_id'=> $request->sub_category_name,
+                
+            ]);
+            return response()->json(['message' => 'Child category updated successfully']);
+        }
+        
+        
 }

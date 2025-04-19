@@ -51,5 +51,25 @@ class CategoryController extends Controller
             'success'=>true,
         ]);
     }
+
+    public function editCategory($id){
+        $category = Category::where('id', $id)->first();
+        // dd($category);
+        return view('backend.pages.category-manage.category.update-category', compact('category'));
+    }
+
+    public function updateCategory(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'status' => 'required|boolean',
+        ]);
+        $category = Category::findOrFail($id);
+        $category->update([
+            'name' => $request->name,
+            'status' => $request->status,
+        ]);
+        return response()->json(['message' => 'Category updated successfully']);
+    }
     
 }
