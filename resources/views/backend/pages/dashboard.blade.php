@@ -102,7 +102,7 @@
                         <p
                           class="text-uppercase fw-bold text-white-50 text-truncate mb-0"
                         >
-                          Total Earnings
+                          Total Categories
                         </p>
                       </div>
                       <div class="flex-shrink-0">
@@ -110,7 +110,7 @@
                           <i
                             class="ri-arrow-right-up-line fs-13 align-middle"
                           ></i>
-                          +16.24 %
+                          {{-- +16.24 % --}}
                         </h5>
                       </div>
                     </div>
@@ -121,23 +121,24 @@
                         <h4
                           class="fs-22 fw-bold ff-secondary text-white mb-4"
                         >
-                          $<span
+                          <span
                             class="counter-value"
-                            data-target="559.25"
-                            >559.25</span
-                          >k
+                            data-target="{{ $totalCategory }}"
+                            >{{ $totalCategory }}</span
+                          >
                         </h4>
                         <a
-                          href=""
+                          href="{{ route('admin.all.categories') }}"
                           class="text-decoration-underline text-white-50"
-                          >View net earnings</a
+                          >View all categories</a
                         >
                       </div>
                       <div class="avatar-sm flex-shrink-0">
                         <span
                           class="avatar-title bg-soft-light rounded fs-3"
                         >
-                          <i class="bx bx-dollar-circle text-white"></i>
+                          {{-- <i class="bx bx-dollar-circle text-white"></i> --}}
+                          <i class="ri-apps-2-line"></i>
                         </span>
                       </div>
                     </div>
@@ -157,7 +158,8 @@
                         <p
                           class="text-uppercase fw-bold text-white-50 text-truncate mb-0"
                         >
-                          Orders
+                          {{-- Orders --}}
+                          Total cities 
                         </p>
                       </div>
                       <div class="flex-shrink-0">
@@ -165,7 +167,7 @@
                           <i
                             class="ri-arrow-right-down-line fs-13 align-middle"
                           ></i>
-                          -3.57 %
+                          {{-- -3.57 % --}}
                         </h5>
                       </div>
                     </div>
@@ -176,21 +178,21 @@
                         <h4
                           class="fs-22 fw-bold ff-secondary text-white mb-4"
                         >
-                          <span class="counter-value" data-target="36894"
-                            >36,894</span
+                          <span class="counter-value" data-target="{{ $totalCities }}"
+                            >{{ $totalCities }}</span
                           >
                         </h4>
                         <a
-                          href=""
+                          href="{{ route('admin.all.cities') }}"
                           class="text-decoration-underline text-white-50"
-                          >View all orders</a
+                          >View all cities</a
                         >
                       </div>
                       <div class="avatar-sm flex-shrink-0">
                         <span
                           class="avatar-title bg-soft-light rounded fs-3"
                         >
-                          <i class="bx bx-shopping-bag text-white"></i>
+                          <i class="ri-earth-line text-white"></i>
                         </span>
                       </div>
                     </div>
