@@ -117,7 +117,7 @@
                                     @endif
                                     <td>
                                         <div class="hstack gap-3 flex-wrap">
-                                            <a href="javascript:void(0);" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
+                                            <a href="{{ route('admin.edit.state' , $value->id) }}" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
                                             <a href="javascript:void(0);" data-id="{{ $value->id }}" id="deleteState" class="delete-btn link-danger fs-15"><i class="ri-delete-bin-line"></i></a>
                                         </div>
                                     </td>

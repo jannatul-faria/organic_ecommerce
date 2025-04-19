@@ -49,4 +49,28 @@ class StateController extends Controller
             'success'=>true,
         ]);
     }
+    // editState 
+    public function editState($id){
+        $state = State::where('id', $id)->with('country')->first();
+        $countries = Country::all();
+        // dd($state);
+        return view('backend.pages.country-manage.state.update-state', compact('state','countries'));
+    }
+
+    public function updateState(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'country_name'=> 'required',
+            'status' => 'required|boolean',
+        ]);
+        $state = State::findOrFail($id);
+        $state->update([
+            'name' => $request->name,
+            'country_id'=>$request->country_name,
+            'status' => $request->status,
+        ]);
+        return response()->json(['message' => 'State updated successfully']);
+    }
+
 }

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="page-content">
-    <div class="container-fluid">
+    <div class="container-fluid" id="allCategoryList">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
@@ -161,7 +161,9 @@
                                 'success'
                             );
                             $row.remove();
-                            // window.location.reload();
+                            // if (response.success) {
+                            //    $('#allCategoryList').load(location.href + " #allCategoryList > *");
+                            // }
                         },
                         error: function(xhr) {
                             Swal.fire(

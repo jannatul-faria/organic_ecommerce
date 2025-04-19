@@ -23,6 +23,9 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::get('add-country', [CountryController::class, 'addCountry'])->name('add.country');
     Route::post('add-country', [CountryController::class, 'storeCountry'])->name('store.country');
     Route::delete('delete-country/{id}', [CountryController::class, 'deleteCountry'])->name('delete.country');
+    
+    Route::get('edit-country/{id}', [CountryController::class, 'editCountry'])->name('edit.country');
+    Route::put('update-country/{id}', [CountryController::class, 'updateCountry'])->name('update.country');
 
 
     // state manage
@@ -30,6 +33,9 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::get('add-states', [StateController::class, 'addState'])->name('add.state');
     Route::post('add-states', [StateController::class, 'storeState'])->name('store.state');
     Route::delete('delete-state/{id}', [StateController::class, 'deleteState'])->name('delete.state');
+
+    Route::get('edit-states/{id}', [StateController::class, 'editState'])->name('edit.state');
+    Route::put('update-states/{id}', [StateController::class, 'updateState'])->name('update.state');
 
 
      // city manage
@@ -39,6 +45,10 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::delete('delete-city/{id}', [CityController::class, 'deleteCity'])->name('delete.city');
     Route::get('get-states',[CityController::class, 'getStates']);
 
+    Route::get('edit-country/{id}', [CountryController::class, 'editCountry'])->name('edit.country');
+    Route::put('update-country/{id}', [CountryController::class, 'updateCountry'])->name('update.country');
+
+    
 // subscriber
     Route::get('subscribers',[SubscriberController::class, 'allSubscribers'])->name('all.subscriber');
 

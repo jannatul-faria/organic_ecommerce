@@ -99,14 +99,9 @@
                                 'success'
                             );
                             $row.remove();
-                            if (response.success) {
-                               $('#childCategoryList').load(location.href + " #childCategoryList > *");
-                            }
-                            // if(response.success){
-                            //     $.('#childCategoryList').load(location.href + "#childCategoryList > *");
+                            // if (response.success) {
+                            //    $('#childCategoryList').load(location.href + " #childCategoryList > *");
                             // }
-                          
-                            // window.location.reload();
                         },
                         error: function(response) {
                             console.log(response);
